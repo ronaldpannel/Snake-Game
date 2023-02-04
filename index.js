@@ -4,13 +4,16 @@ window.addEventListener("load", function () {
   const ctx = canvas.getContext("2d");
   canvas.width = 400;
   canvas.height = 400;
+  const hScoreBoard = document.getElementById("highScoreValue");
   const gulpSound = document.getElementById("gulp");
   const scoreBoard = document.getElementById("scoreValue");
   const gameOverText = document.getElementById("gameOver");
   const startBtn = document.getElementById("startBtn");
- 
+  const hsResetBtn = document.getElementById("hsResetBtn");
+
   let speed = 3;
   let score = 0;
+  let highScore = localStorage.getItem("snakeHighScore") || 0;
   let tileCount = 20;
   let headX = 10;
   let headY = 10;
@@ -42,6 +45,7 @@ window.addEventListener("load", function () {
     checkAppleCollision();
     drawSnake();
     drawApple();
+    checkHighScore();
     if (score > 2) {
       speed = 5;
     }
@@ -81,6 +85,7 @@ window.addEventListener("load", function () {
     if (gameOver) {
       gameOverText.classList.add("active");
       startBtn.classList.add("active");
+      hsResetBtn.classList.add("active");
     }
     return gameOver;
   }
@@ -123,11 +128,17 @@ window.addEventListener("load", function () {
       appleX = Math.floor(Math.random() * tileCount);
       appleY = Math.floor(Math.random() * tileCount);
       tailLength++;
-      
     }
   }
+  function checkHighScore() {
+    if (score > localStorage.getItem("snakeHighScore")) {
+      localStorage.setItem("snakeHighScore", score);
+      let hsScore = localStorage.getItem("snakeHighScore");
+      highScore = hsScore;
+    }
+    hScoreBoard.innerHTML = highScore;
+  }
 
-  
   window.addEventListener("keydown", keydown);
 
   function keydown(e) {
@@ -151,6 +162,10 @@ window.addEventListener("load", function () {
     }
   }
   startBtn.addEventListener("pointerdown", (e) => {
+    window.location.reload();
+  });
+  hsResetBtn.addEventListener("pointerdown", (e) => {
+    localStorage.setItem("snakeHighScore", 0);
     window.location.reload();
   });
 

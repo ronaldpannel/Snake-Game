@@ -8,13 +8,19 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-  <audio id="gulp" src="gulp.mp3"></audio>
+    <audio id="gulp" src="gulp.mp3"></audio>
     <div class="gameWrapper">
-      <p class="name">Snake Game</p>
-      <p class="score">Score: <span id="scoreValue">0</span></p>
+      <div class="scoreboard">
+        <p class="name">Snake Game</p>
+        <div class="scores">
+          <p class="score">Score: <span id="scoreValue">0</span></p>
+          <p class="score">High core: <span id="highScoreValue">0</span></p>
+        </div>
+      </div>
 
       <canvas class="canvas1" id="canvas1"> </canvas>
       <button class="startBtn" id="startBtn">Start Game</button>
+      <button class="hsResetBtn" id="hsResetBtn">High Score RS</button>
       <p class="gameOver" id="gameOver">Game Over</p>
     </div>
 

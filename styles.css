@@ -14,14 +14,30 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   width: 410px;
-  height: 500px;
+  height: 470px;
+  max-width: 100%;
+  max-height: 100%;
+}
+.scoreboard{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+.scores{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 p {
   color: white;
-  text-align: center;
 }
 p.name {
-  font-size: 1.3rem;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
 }
 p.score {
   font-size: 1.1rem;
@@ -29,22 +45,23 @@ p.score {
 
 .canvas1 {
   position: absolute;
-  top: 60%;
+  top: 57%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 400px;
   height: 400px;
   border: 1px solid white;
-  /* max-width: 100%;
-  max-height: 100%; */
+  max-width: 100%;
+  max-height: 100%;
 }
 .startBtn {
+  width: 125px ;
   position: absolute;
   top: 90%;
-  left: 50%;
+  left: 25%;
   transform: translate(-50%, -50%);
   color: white;
-  font-size: 1.1rem;
+  font-size: 0.8rem;
   font-family: monospace, Arial, Helvetica, sans-serif;
   background-color: black;
   padding: 3px 10px;
@@ -56,6 +73,29 @@ p.score {
 }
 .startBtn:hover,
 .startBtn:focus {
+  color: orange;
+  border-color: orange;
+  display: block;
+}
+.hsResetBtn{
+  width: 125px ;
+  position: absolute;
+  top: 90%;
+  left: 76%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 0.8rem;
+  font-family: monospace, Arial, Helvetica, sans-serif;
+  background-color: black;
+  padding: 3px 10px;
+  outline: none;
+  border: solid white 1px;
+  border-radius: 3px;
+  display: none;
+  cursor: pointer;
+}
+.hsResetBtn:hover,
+.hsResetBtn:focus {
   color: orange;
   border-color: orange;
   display: block;
